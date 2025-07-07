@@ -8,7 +8,11 @@ def turn_right_90():
 
 
 # Task 5 - Move forward
-
+def move_to_wall():
+    while Kitronik_Move_Motor.measure() > distanceToWall:
+        # Add Code here
+        basic.pause(100)
+    Kitronik_Move_Motor.stop()
 
 # Task 6 - Escape the maze!
 
@@ -17,10 +21,12 @@ def turn_right_90():
 biasValue = 3
 Kitronik_Move_Motor.motor_balance(Kitronik_Move_Motor.SpinDirections.RIGHT, biasValue)
 Kitronik_Move_Motor.set_ultrasonic_units(Kitronik_Move_Motor.Units.CENTIMETERS)
-# Add your variables for speed and distance to wall here
 
+# Add your variables for speed and distance to wall here
+distanceToWall = 0
 
 # Call your function to escape the maze
+
 
 # Task 4 - Object ahead!
 def on_forever():
